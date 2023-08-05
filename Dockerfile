@@ -20,4 +20,10 @@ RUN set -eux \
 
 COPY --from=rootfs ["/", "/"]
 
+LABEL maintainer="Aleksandar Puharic <aleksandar@puharic.com>" \
+      org.opencontainers.image.source="https://github.com/N0rthernL1ghts/docker-MEGAcmd" \
+      org.opencontainers.image.description="MEGA CMD - Fedora Build ${TARGETPLATFORM}" \
+      org.opencontainers.image.licenses="MIT" \
+      org.opencontainers.image.version="latest"
+
 WORKDIR "/config/mega"
