@@ -20,4 +20,4 @@ RUN set -eux \
 
 COPY --from=rootfs ["/", "/"]
 
-WORKDIR "/config"
+WORKDIR "/config/mega"
