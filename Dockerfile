@@ -12,7 +12,7 @@ FROM lscr.io/linuxserver/baseimage-fedora:38
 
 ARG MEGA_DOWNLOAD_URL
 RUN set -eux \
-    && curl "${MEGA_DOWNLOAD_URL}" --output "/tmp/megacmd.rpm" \
+    && curl --fail "${MEGA_DOWNLOAD_URL}" --output "/tmp/megacmd.rpm" \
     && dnf --assumeyes install "/tmp/megacmd.rpm" \
     && dnf autoremove -y \
     && dnf clean all \
