@@ -21,5 +21,3 @@ RUN set -eux \
 COPY --from=rootfs ["/", "/"]
 
 WORKDIR "/config"
-
-ENTRYPOINT ["/init"]
