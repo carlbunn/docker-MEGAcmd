@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv sh
+
+PUID="${PUID:-911}"
+PGID="${PGID:-911}"
+
+export HOME="/config"
+s6-setuidgid "${PUID}:${PGID}" /usr/bin/mega-cmd-server

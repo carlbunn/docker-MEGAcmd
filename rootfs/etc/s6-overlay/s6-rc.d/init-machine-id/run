@@ -1,0 +1,27 @@
+#!/usr/bin/with-contenv sh
+
+main() {
+    # We need /etc/machine-id in order for sync to work, due to issue #623
+    # See: https://github.com/meganz/MEGAcmd/issues/623
+
+
+    # Machine ID exists and is not empty, we do not need to do anything but keep /config/machine-id up-to-date
+    if [ -s "/etc/machine-id" ]; then
+        echo "> Machine ID: $(cat /etc/machine-id)"
+        cat /etc/machine-id > /config/machine-id
+        return
+    fi
+
+    # If machine-id at persistent location is not existent or empty, we want to generate new one before proceeding
+    if [ ! -f "/config/machine-id" ] || [ ! -s "/config/machine-id" ]; then
+        echo "> Generating new machine ID"
+        cat /proc/sys/kernel/random/uuid > /config/machine-id
+    fi
+
+    cat /config/machine-id > /etc/machine-id
+
+    echo "> Machine ID: $(cat /etc/machine-id)"
+    lsiown abc:abc /config/machine-id 
+}
+
+main
