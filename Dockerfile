@@ -1,4 +1,4 @@
-ARG MEGA_DOWNLOAD_URL="https://mega.nz/linux/MEGAsync/Fedora_38/x86_64/megasync-Fedora_38.x86_64.rpm"
+ARG MEGA_DOWNLOAD_URL="https://mega.nz/linux/repo/Fedora_38/x86_64/megacmd-Fedora_38.x86_64.rpm"
 
 
 
