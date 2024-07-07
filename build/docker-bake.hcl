@@ -78,5 +78,5 @@ target "latest" {
   cache-from = get-cache-from("latest")
   cache-to   = get-cache-to("latest")
   tags       = get-tags("latest", [])
-  args       = get-args("https://mega.nz/linux/repo/Fedora_38/x86_64/megacmd-Fedora_38.x86_64.rpm")
+  args       = get-args("https://mega.nz/linux/repo/Fedora_40/x86_64/megacmd-Fedora_40.x86_64.rpm")
 }

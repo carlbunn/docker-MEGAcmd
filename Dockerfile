@@ -8,7 +8,7 @@ COPY ["./rootfs/", "/"]
 
 
 
-FROM lscr.io/linuxserver/baseimage-fedora:38
+FROM lscr.io/linuxserver/baseimage-fedora:40
 
 ARG MEGA_DOWNLOAD_URL
 RUN set -eux \
