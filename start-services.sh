@@ -3,7 +3,7 @@
 crond
 
 # Start megasync initially
-megasync &
+mega-sync &
 
 # Keep the container running
 tail -f /var/log/megasync-monitor.log
