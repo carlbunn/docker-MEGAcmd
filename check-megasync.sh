@@ -1,8 +1,8 @@
 #!/bin/bash
 # Check if megasync is running
-if ! pgrep -x "megasync" >/dev/null 2>&1; then
-    echo "$(date): megasync not running, starting it..."
-    megasync &
+if ! pgrep -x "mega-sync" >/dev/null 2>&1; then
+    echo "$(date): mega-sync not running, starting it..."
+    mega-sync &
 else
-    echo "$(date): megasync is running"
+    echo "$(date): mega-sync is running"
 fi
