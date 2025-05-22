@@ -21,8 +21,8 @@ COPY start-services.sh /usr/local/bin/start-services.sh
 RUN chmod +x /usr/local/bin/check-megasync.sh /usr/local/bin/start-services.sh
 
 # Create cron.d directory if it doesn't exist and create cron job
-RUN mkdir -p /etc/cron.d && \
-    echo "*/10 * * * * root /usr/local/bin/check-megasync.sh >> /var/log/megasync-monitor.log 2>&1" > /etc/cron.d/megasync-monitor
+RUN mkdir -p /etc/cron.d
+RUN echo "*/10 * * * * root /usr/local/bin/check-megasync.sh >> /var/log/megasync-monitor.log 2>&1" > /etc/cron.d/megasync-monitor
 
 # Give execution permission to the cron job
 RUN chmod 0644 /etc/cron.d/megasync-monitor
