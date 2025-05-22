@@ -33,7 +33,7 @@ RUN touch /var/log/megasync-monitor.log
 
 LABEL maintainer="Carl Bunn <carl@carlbunn.com>" \
       org.opencontainers.image.source="https://github.com/carlbunn/docker-MEGAcmd" \
-      org.opencontainers.image.description="MEGA CMD - Fedora Build" \
+      org.opencontainers.image.description="MEGA CMD - Ubuntu Build" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.version="latest"
 
