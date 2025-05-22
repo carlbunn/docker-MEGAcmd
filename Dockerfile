@@ -1,15 +1,15 @@
-ARG MEGA_DOWNLOAD_URL="https://mega.nz/linux/repo/Fedora_38/x86_64/megacmd-Fedora_38.x86_64.rpm"
 FROM scratch AS rootfs
 COPY ["./rootfs/", "/"]
-FROM lscr.io/linuxserver/baseimage-fedora:40
-ARG MEGA_DOWNLOAD_URL
+FROM lscr.io/linuxserver/baseimage-ubuntu:jammy
+ARG MEGA_DOWNLOAD_URL="https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd-xUbuntu_22.04_amd64.deb"
 
 RUN set -eux \
-    && curl --fail "${MEGA_DOWNLOAD_URL}" --output "/tmp/megacmd.rpm" \
-    && dnf --assumeyes install "/tmp/megacmd.rpm" cronie \
-    && dnf autoremove -y \
-    && dnf clean all \
-    && rm -rf /tmp/*
+    && apt-get update \
+    && apt-get install -y curl cron \
+    && curl --fail "${MEGA_DOWNLOAD_URL}" --output "/tmp/megacmd.deb" \
+    && dpkg -i /tmp/megacmd.deb || apt-get install -fy \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/*
 
 COPY --from=rootfs ["/", "/"]
 
