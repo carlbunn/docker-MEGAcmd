@@ -6,6 +6,8 @@ COPY ["./rootfs/", "/"]
 
 FROM lscr.io/linuxserver/baseimage-fedora:40
 
+ARG MEGA_DOWNLOAD_URL
+
 RUN set -eux \
     && curl --fail "${MEGA_DOWNLOAD_URL}" --output "/tmp/megacmd.rpm" \
     && dnf --assumeyes install "/tmp/megacmd.rpm" \
@@ -33,7 +35,7 @@ RUN touch /var/log/megasync-monitor.log
 
 LABEL maintainer="Aleksandar Puharic <aleksandar@puharic.com>" \
       org.opencontainers.image.source="https://github.com/N0rthernL1ghts/docker-MEGAcmd" \
-      org.opencontainers.image.description="MEGA CMD - Fedora Build ${TARGETPLATFORM}" \
+      org.opencontainers.image.description="MEGA CMD - Ubuntu Build" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.version="latest"
 
